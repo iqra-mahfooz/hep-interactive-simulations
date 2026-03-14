@@ -178,7 +178,7 @@ hep-simulations/
 Clone the repository and open the project locally.
 
 ```bash
-git clone https://github.com/iqra-mahfooz/hep-interactive-simulations
+git clone https://iqra-mahfooz.github.io/hep-interactive-simulations/
 cd hep-interactive-simulations
 ```
 
