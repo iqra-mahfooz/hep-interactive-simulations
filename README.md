@@ -173,14 +173,11 @@ hep-simulations/
 
 ---
 
-# 🖥️ How to Run
+## Live Demo
 
-Clone the repository and open the project locally.
+🚀 **Launch the simulator**
 
-```bash
-git clone:
-https://iqra-mahfooz.github.io/hep-interactive-simulations/
-cd hep-interactive-simulations
+👉 https://iqra-mahfooz.github.io/hep-interactive-simulations/
 ```
 
 Then open:
