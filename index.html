@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEP Simulations — Particle Physics Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Exo+2:wght@200;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    
+</head>
+<body>
+    <header>
+        <div class="logo-block">
+            <div class="lab">Computational HEP Lab · Portfolio v1.0</div>
+            <h1>Particle Physics<br>Interactive Simulations</h1>
+        </div>
+        <div class="status-block">
+            <div class="live">Simulation Active</div>
+            <div>√s = <span id="ecm-display">13.6</span> TeV</div>
+            <div>LHC Run 3 Parameters</div>
+            <div style="margin-top:6px; color:rgba(255,255,255,0.15)">HIGH ENERGY PHYSICS · QFT · SM</div>
+        </div>
+    </header>
+
+    <div class="workspace">
+        <!-- MAIN SIM PANEL -->
+        <div class="sim-panel">
+            <div class="sim-header">
+                <div class="sim-title">⬡ Proton–Proton Collision Simulator</div>
+                <div class="sim-energy">√s = <span id="energy-label">13.6</span> TeV · LHC Mode</div>
+            </div>
+            <canvas id="collider" width="900" height="520"></canvas>
+            <div class="controls">
+                <button class="btn btn-primary" id="btn-collide">COLLIDE</button>
+                <button class="btn btn-gold" id="btn-auto">AUTO FIRE</button>
+                <button class="btn btn-danger" id="btn-clear">CLEAR</button>
+                <select id="mode-select">
+                    <option value="pp">p–p Collision</option>
+                    <option value="ee">e⁺e⁻ Annihilation</option>
+                    <option value="heavy">Pb–Pb (Heavy Ion)</option>
+                </select>
+                <div class="slider-group">
+                    <span>√s</span>
+                    <input type="range" id="energy-slider" min="1" max="14" step="0.1" value="13.6">
+                    <span id="energy-val">13.6 TeV</span>
+                </div>
+                <div class="slider-group">
+                    <span>Multiplicity</span>
+                    <input type="range" id="mult-slider" min="1" max="5" step="1" value="3">
+                    <span id="mult-val">×3</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="sidebar">
+            <div class="panel">
+                <div class="panel-title">Collision Stats</div>
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="stat-label">Events</div>
+                        <div class="stat-value" id="stat-events">0<span class="stat-unit"></span></div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Particles</div>
+                        <div class="stat-value" id="stat-particles">0<span class="stat-unit"></span></div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Bosons</div>
+                        <div class="stat-value" id="stat-bosons" style="color:var(--gold)">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Jets</div>
+                        <div class="stat-value" id="stat-jets" style="color:var(--green)">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-title">Feynman Diagram</div>
+                <canvas class="feynman-canvas" id="feynman" width="278" height="130"></canvas>
+            </div>
+
+            <div class="panel" style="flex:1">
+                <div class="panel-title">Event Log</div>
+                <div class="log" id="event-log"></div>
+            </div>
+        </div>
+
+        <!-- ROADMAP -->
+        <div class="roadmap-section">
+            <div class="roadmap-title">Simulation Roadmap</div>
+            <div class="roadmap-sub">High Energy Physics · Computational Portfolio</div>
+
+            <!-- TIER 1 -->
+            <div class="tier-row t1">
+                <div class="tier-label">
+                    <div class="tier-name">Foundation</div>
+                    <div class="tier-range">01–04</div>
+                </div>
+                <div class="tier-cards">
+                    <div class="sim-card active">
+                        <div class="card-icon">⚛</div>
+                        <div class="card-name">PP Collider</div>
+                        <div class="card-desc">Proton-proton collision event display with particle showers</div>
+                        <div class="card-tags"><span class="card-tag">QCD</span><span class="card-tag">Jets</span><span class="card-tag">Canvas</span></div>
+                    </div>
+                    <div class="sim-card locked">
+                        <div class="card-icon">🌊</div>
+                        <div class="card-name">Wave Functions</div>
+                        <div class="card-desc">Schrödinger equation solver, potential wells, tunneling</div>
+                        <div class="card-tags"><span class="card-tag">QM</span><span class="card-tag">WebGL</span></div>
+                    </div>
+                    <div class="sim-card locked">
+                        <div class="card-icon">⚡</div>
+                        <div class="card-name">EM Fields</div>
+                        <div class="card-desc">Maxwell equations, field line visualization, radiation</div>
+                        <div class="card-tags"><span class="card-tag">Classical</span><span class="card-tag">Three.js</span></div>
+                    </div>
+                    <div class="sim-card locked">
+                        <div class="card-icon">🔀</div>
+                        <div class="card-name">Feynman Diagrams</div>
+                        <div class="card-desc">Interactive builder for QED/QCD/EW processes</div>
+                        <div class="card-tags"><span class="card-tag">QFT</span><span class="card-tag">Perturbation</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIER 2 -->
+            <div class="tier-row t2">
+                <div class="tier-label">
+                    <div class="tier-name">Intermediate</div>
+                    <div class="tier-range">05–08</div>
+                </div>
+                <div class="tier-cards">
+                    <div class="sim-card locked">
+                        <div class="card-icon">🌀</div>
+                        <div class="card-name">Lorentz Boosts</div>
+                        <div class="card-desc">Special relativity, spacetime diagrams, 4-vectors</div>
+                        <div class="card-tags"><span class="card-tag">SR</span><span class="card-tag">Kinematics</span></div>
+                    </div>
+                    <div class="sim-card locked">
+                        <div class="card-icon">🎯</div>
+                        <div class="card-name">Cross Sections</div>
+                        <div class="card-desc">Differential cross-section visualizer, phase space</div>
+                        <div class="card-tags"><span class="card-tag">Scattering</span><span class="card-tag">Monte Carlo</span></div>
+                    </div>
+                    <div class="sim-card locked">
+                        <div class="card-icon">🔵</div>
+                        <div class="card-name">Parton Showers</div>
+                        <div class="card-desc">DGLAP evolution, fragmentation, jet formation</div>
+                        <div class="card-tags"><span class="card-tag">QCD</span><span class="card-tag">pQCD</span></div>
+                    </div>
+                    <div class="sim-card locked">
+                        <div class="card-icon">🌡</div>
+                        <div class="card-name">QGP / Heavy Ion</div>
+                        <div class="card-desc">Quark-gluon plasma, thermalization, Pb-Pb collisions</div>
+                        <div class="card-tags"><span class="card-tag">HIC</span><span class="card-tag">QCD Phase</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIER 3 -->
+            <div class="tier-row t3">
+                <div class="tier-label">
+                    <div class="tier-name">Advanced</div>
+                    <div class="tier-range">09–12</div>
+                </div>
+                <div class="tier-cards">
+                    <div class="sim-card locked">
+                        <div class="card-icon">🍬</div>
+                        <div class="card-name">Higgs Mechanism</div>
+                        <div class="card-desc">SSB, Mexican hat potential, mass generation</div>
+                        <div class="card-tags"><span class="card-tag">EW</span><span class="card-tag">SSB</span><span class="card-tag">SM</span></div>
+                    </div>
+                    <div class="sim-card locked">
+                        <div class="card-icon">🌈</div>
+                        <div class="card-name">Color Confinement</div>
+                        <div class="card-desc">QCD strings, flux tubes, hadronization</div>
+                        <div class="card-tags"><span class="card-tag">QCD</span><span class="card-tag">Lattice</span></div>
+                    </div>
+                    <div class="sim-card locked">
+                        <div class="card-icon">🔭</div>
+                        <div class="card-name">Cosmic Rays</div>
+                        <div class="card-desc">EAS simulation, Heitler model, atmospheric shower</div>
+                        <div class="card-tags"><span class="card-tag">Astro</span><span class="card-tag">Monte Carlo</span></div>
+                    </div>
+                    <div class="sim-card locked">
+                        <div class="card-icon">🧲</div>
+                        <div class="card-name">Detector Sim</div>
+                        <div class="card-desc">CMS/ATLAS-like detector response, track reconstruction</div>
+                        <div class="card-tags"><span class="card-tag">Detector</span><span class="card-tag">Reco</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TIER 4 -->
+            <div class="tier-row t4" style="margin-bottom:0">
+                <div class="tier-label">
+                    <div class="tier-name">Research</div>
+                    <div class="tier-range">13+</div>
+                </div>
+                <div class="tier-cards">
+                    <div class="sim-card locked">
+                        <div class="card-icon">🔮</div>
+                        <div class="card-name">BSM Explorer</div>
+                        <div class="card-desc">SUSY particles, extra dimensions, dark matter candidates</div>
+                        <div class="card-tags"><span class="card-tag">BSM</span><span class="card-tag">SUSY</span></div>
+                    </div>
+                    <div class="sim-card locked">
+                        <div class="card-icon">🕳</div>
+                        <div class="card-name">Black Hole Production</div>
+                        <div class="card-desc">TeV-scale gravity, micro BH at LHC, Hawking radiation</div>
+                        <div class="card-tags"><span class="card-tag">GR</span><span class="card-tag">Extra Dim</span></div>
+                    </div>
+                    <div class="sim-card locked">
+                        <div class="card-icon">🧩</div>
+                        <div class="card-name">Path Integrals</div>
+                        <div class="card-desc">Feynman path integral visualization, lattice QFT</div>
+                        <div class="card-tags"><span class="card-tag">QFT</span><span class="card-tag">Non-Perturbative</span></div>
+                    </div>
+                    <div class="sim-card locked">
+                        <div class="card-icon">🌌</div>
+                        <div class="card-name">Early Universe</div>
+                        <div class="card-desc">Baryogenesis, electroweak phase transition, inflation</div>
+                        <div class="card-tags"><span class="card-tag">Cosmology</span><span class="card-tag">EW</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/constants.js"></script>
+<script src="js/feynman.js"></script>
+<script src="js/simulation.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
