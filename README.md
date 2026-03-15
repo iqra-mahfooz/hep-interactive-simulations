@@ -176,21 +176,19 @@ hep-simulations/
 ## Live Demo
 
 🚀 **Launch the simulator**
-
+```
 👉 https://iqra-mahfooz.github.io/hep-interactive-simulations/
 ```
 
 Then open:
 
-```
-index.html
-```
+`index.html`
 
 No build tools or frameworks are required.
 
 ---
 
-# 🎯 Purpose
+## 🎯 Purpose
 
 This project demonstrates:
 
@@ -203,7 +201,7 @@ It also serves as a **growing portfolio of High Energy Physics simulations**.
 
 ---
 
-# 📚 Physics Topics Covered
+## 📚 Physics Topics Covered
 
 * Quantum Field Theory
 * Quantum Chromodynamics
@@ -214,9 +212,6 @@ It also serves as a **growing portfolio of High Energy Physics simulations**.
 
 ---
 
-# 📜 License
+## 📜 License
 
 MIT License
-
----
-
