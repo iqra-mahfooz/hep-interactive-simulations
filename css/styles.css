@@ -542,3 +542,7 @@ select {
 ::-webkit-scrollbar-thumb { 
     background:rgba(0,212,255,0.3); 
 }
+.sim-link{
+text-decoration:none;
+color:inherit;
+}
